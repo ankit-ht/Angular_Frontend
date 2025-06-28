@@ -4,7 +4,7 @@
 // baseUrl:"http://localhost:8087"
 export const environment = {
   production: false,
-  baseUrl:"http://springboot-container:8080",
+  baseUrl:"http://springboot-container:8087",
   signupUrl : "/home/signup",
   loginUrl : "/home/auth",
   addToCartUrl : "/user/addToCart",
