@@ -1,21 +1,18 @@
-# Stage 1: Build Angular app
-FROM node:10 as build
+# Use Node.js 10 base image
+FROM node:10
 
+# Set working directory
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
 
-# Copy source files
+# Copy the rest of the application code
 COPY . .
 
-# Build the Angular app
-RUN npm run build --prod
-
+# Expose Angular dev server port
 EXPOSE 4200
 
-CMD [ "npm", "start" ]
-
-
-
+# Default command: run Angular dev server
+CMD ["npm", "start"]
